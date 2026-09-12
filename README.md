@@ -1,27 +1,9 @@
-# FatBoySchlim v0.1
+# FatBoySchlim v0.2
+English-language mobile-first PWA. German is retained only in the playful dynamic subtitle.
 
-Mobile-first PWA foundation with Supabase authentication and cloud-saved weight tracking.
+## Upgrade from v0.1
+1. In Supabase SQL Editor, run `v0.2_migration.sql` once.
+2. Replace the five web files in the GitHub repo root: `index.html`, `styles.css`, `app.js`, `manifest.webmanifest`, `sw.js`.
+3. Wait for GitHub Pages to redeploy, then refresh the app.
 
-## 1. Set up Supabase
-1. Open your FatBoySchlim project in Supabase.
-2. Open **SQL Editor** and create a new query.
-3. Paste the complete contents of `supabase_setup.sql` and click **Run**.
-4. In **Authentication**, email/password authentication should be enabled. Supabase may require email confirmation by default; that is fine.
-
-## 2. Upload to GitHub
-Upload these files to the root of the empty `fatboyschlim` repository:
-- index.html
-- styles.css
-- app.js
-- manifest.webmanifest
-- sw.js
-- README.md
-- supabase_setup.sql
-
-## 3. Turn on GitHub Pages
-In the repository: **Settings → Pages → Build and deployment → Deploy from a branch**. Choose the `main` branch and `/ (root)`, then Save.
-
-## 4. Test
-Open the GitHub Pages URL, create an account, log in, and enter a weight. Refresh/reopen the page; the entry should still be present.
-
-The Supabase URL and publishable key in `app.js` are frontend/public credentials. Never place a Supabase secret/service-role key in this repository.
+v0.2 adds profile onboarding, dynamic FatBoy/FatGirl subtitle, configurable diet/nutrition settings, hard exclusions/preferences, grocery budget/stores, and timestamped body measurements.
