@@ -1,5 +1,4 @@
-# FatBoySchlim v0.3
+# FatBoySchlim v0.4
+Run `v0.4_migration.sql` in Supabase before deploying. Then replace `index.html`, `styles.css`, `app.js`, `manifest.webmanifest`, and `sw.js` in GitHub Pages.
 
-Adds suggested calorie/macronutrient targets, Custom/No Specific Diet behavior, seeded food library, dietary filtering, store reference data for Fry's Food Stores, Safeway, Walmart, Kaufland and EDEKA, plus pantry/price database foundations.
-
-Run `v0.3_migration.sql` in Supabase before deploying the five web files.
+v0.4 adds dynamic macro recalculation, estimated weekly weight change, immutable daily target snapshots, historical food logging, and weekly meal-coverage planning. Recipe-linked shopping comes next.
