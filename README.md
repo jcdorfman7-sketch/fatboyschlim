@@ -1,13 +1,25 @@
-# FatBoySchlim v0.6
+# FatBoySchlim v0.7 — Big-Ass Cookbook
 
-Adds weekly lock-in state, meal-prep preferences, Flex navigation, practical ingredient amounts, and more beginner-friendly recipe guidance.
+Major food-system release built on v0.6.1.
 
-Run `v0.6_migration.sql` in Supabase before deploying the five web files.
+## Install
+1. Run all prior migrations through v0.6.1 if not already installed.
+2. Run `v0.7_migration.sql` in Supabase SQL Editor.
+3. Replace the five GitHub Pages frontend files: `index.html`, `styles.css`, `app.js`, `manifest.webmanifest`, `sw.js`.
 
-## v0.6.1
-- Shop is now the single Plan + Buy workflow.
-- Eat only uses the locked weekly meal pool.
-- Grocery list is promoted after lock-in.
-- One primary store drives cart estimates.
-- Actual prices can be entered and become store-specific price history for future estimates.
-- `v0.6.1_migration.sql` adds preferred store and grocery pricing fields.
+## v0.7
+- 100 new structured recipes (115 total when the original 15 remain)
+- Breakfast / Lunch / Dinner / Snack classifications
+- meal-type-aware weekly generation
+- clearer Replace Meal flow
+- already-selected recipes excluded from swap choices
+- realistic food-photo prototype surface
+- multiple Cook Mode methods where appropriate: stovetop, air fryer, oven
+- beginner-level step-by-step instructions and safe doneness temperatures
+- practical ingredient quantities and serving scaling
+- meal-prep storage/reheating guidance
+- prepared-portions inventory table and Save Prepared Portions action
+- existing v0.6.1 store-price learning and locked-week workflow retained
+
+### Photography note
+v0.7 uses dynamically sourced real food photography as prototype imagery. It is not guaranteed to depict the exact recipe. Exact standardized recipe photography should replace these URLs before a public production release.
