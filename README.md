@@ -1,22 +1,28 @@
-# FatBoySchlim v0.8 — Smart Food Ecosystem
+# FatBoySchlim v0.8.1 — Shop, Pantry & Daily Planning
 
-v0.8 connects planning, pantry, prepared meals, recipe feedback, and Eat.
+This release fixes the food workflow rather than adding a new section.
+
+## What changed
+- Shop now has clear **Plan / Grocery List / Pantry** views.
+- Pantry is editable and visible. Pantry quantities are subtracted from the grocery list and strongly influence meal generation.
+- Checking a grocery item as purchased adds the purchased quantity to pantry once.
+- Store pricing is now explicitly editable with **Shelf price + Package size** fields. Estimates recalculate on screen and can be saved per food/store.
+- Optional **Actually paid** totals can also be recorded.
+- Weekly generation now creates actual **daily plans**, with selectable Breakfast / Lunch / Snack / Dinner slots and 1–7 days.
+- The generator scores the whole day, not just isolated meals, while also considering pantry overlap, diet, feedback, history, and meal-prep preference.
+- Added 10 simple first-class snack recipes and supporting foods.
+- Eat now opens on the selected day's plan and shows planned daily macros against the user's target.
+- Finish My Day prioritizes simple snack fits when there is a macro gap.
 
 ## Install
-1. Run `v0.8_migration.sql` in Supabase SQL Editor.
-2. Replace `index.html`, `styles.css`, `app.js`, `manifest.webmanifest`, and `sw.js` in GitHub.
-3. Hard-refresh once after GitHub Pages deploys.
+1. Run `v0.8.1_migration.sql` in Supabase SQL Editor.
+2. Replace these five files in GitHub Pages:
+   - `index.html`
+   - `styles.css`
+   - `app.js`
+   - `manifest.webmanifest`
+   - `sw.js`
+3. Reload the site. If an old cached build appears, hard refresh once.
 
-## Major changes
-- Exact/close recipe-photo policy. Old random v0.7 image URLs are removed and replaced with honest placeholders.
-- Pantry quantities are subtracted from generated grocery needs.
-- Cooking prepared servings consumes pantry ingredients and creates prepared-meal inventory.
-- Eat shows prepared meals separately and decrements them as they are eaten.
-- Weekly generation considers pantry overlap, recent recipe history, meal type, macros, meal-prep mode, and recipe feedback.
-- Favorite / Make again / Don't suggest feedback.
-- Recipe browser with search and meal-type filters.
-- Finish My Day chooses the closest planned/prepared meal to remaining calories and protein.
-- Food logs can now link back to recipe IDs for history-aware generation.
-
-## Images
-v0.8 deliberately does not show an unrelated stock photo. A recipe image is shown only when its database `image_status` is `exact` or `close`; otherwise the UI displays a clean placeholder. Exact recipe imagery can now be added recipe-by-recipe in Supabase without changing app code.
+## Pricing note
+FatBoySchlim does not invent store prices. A food/store gets an estimate once a shelf price and package size have been saved. Future lists reuse the latest saved price for that store.
