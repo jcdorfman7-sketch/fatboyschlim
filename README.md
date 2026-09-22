@@ -1,25 +1,22 @@
-# FatBoySchlim v0.7 — Big-Ass Cookbook
+# FatBoySchlim v0.8 — Smart Food Ecosystem
 
-Major food-system release built on v0.6.1.
+v0.8 connects planning, pantry, prepared meals, recipe feedback, and Eat.
 
 ## Install
-1. Run all prior migrations through v0.6.1 if not already installed.
-2. Run `v0.7_migration.sql` in Supabase SQL Editor.
-3. Replace the five GitHub Pages frontend files: `index.html`, `styles.css`, `app.js`, `manifest.webmanifest`, `sw.js`.
+1. Run `v0.8_migration.sql` in Supabase SQL Editor.
+2. Replace `index.html`, `styles.css`, `app.js`, `manifest.webmanifest`, and `sw.js` in GitHub.
+3. Hard-refresh once after GitHub Pages deploys.
 
-## v0.7
-- 100 new structured recipes (115 total when the original 15 remain)
-- Breakfast / Lunch / Dinner / Snack classifications
-- meal-type-aware weekly generation
-- clearer Replace Meal flow
-- already-selected recipes excluded from swap choices
-- realistic food-photo prototype surface
-- multiple Cook Mode methods where appropriate: stovetop, air fryer, oven
-- beginner-level step-by-step instructions and safe doneness temperatures
-- practical ingredient quantities and serving scaling
-- meal-prep storage/reheating guidance
-- prepared-portions inventory table and Save Prepared Portions action
-- existing v0.6.1 store-price learning and locked-week workflow retained
+## Major changes
+- Exact/close recipe-photo policy. Old random v0.7 image URLs are removed and replaced with honest placeholders.
+- Pantry quantities are subtracted from generated grocery needs.
+- Cooking prepared servings consumes pantry ingredients and creates prepared-meal inventory.
+- Eat shows prepared meals separately and decrements them as they are eaten.
+- Weekly generation considers pantry overlap, recent recipe history, meal type, macros, meal-prep mode, and recipe feedback.
+- Favorite / Make again / Don't suggest feedback.
+- Recipe browser with search and meal-type filters.
+- Finish My Day chooses the closest planned/prepared meal to remaining calories and protein.
+- Food logs can now link back to recipe IDs for history-aware generation.
 
-### Photography note
-v0.7 uses dynamically sourced real food photography as prototype imagery. It is not guaranteed to depict the exact recipe. Exact standardized recipe photography should replace these URLs before a public production release.
+## Images
+v0.8 deliberately does not show an unrelated stock photo. A recipe image is shown only when its database `image_status` is `exact` or `close`; otherwise the UI displays a clean placeholder. Exact recipe imagery can now be added recipe-by-recipe in Supabase without changing app code.
