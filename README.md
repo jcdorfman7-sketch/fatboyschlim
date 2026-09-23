@@ -1,28 +1,52 @@
-# FatBoySchlim v0.8.1 — Shop, Pantry & Daily Planning
-
-This release fixes the food workflow rather than adding a new section.
+# FatBoySchlim v0.9
 
 ## What changed
-- Shop now has clear **Plan / Grocery List / Pantry** views.
-- Pantry is editable and visible. Pantry quantities are subtracted from the grocery list and strongly influence meal generation.
-- Checking a grocery item as purchased adds the purchased quantity to pantry once.
-- Store pricing is now explicitly editable with **Shelf price + Package size** fields. Estimates recalculate on screen and can be saved per food/store.
-- Optional **Actually paid** totals can also be recorded.
-- Weekly generation now creates actual **daily plans**, with selectable Breakfast / Lunch / Snack / Dinner slots and 1–7 days.
-- The generator scores the whole day, not just isolated meals, while also considering pantry overlap, diet, feedback, history, and meal-prep preference.
-- Added 10 simple first-class snack recipes and supporting foods.
-- Eat now opens on the selected day's plan and shows planned daily macros against the user's target.
-- Finish My Day prioritizes simple snack fits when there is a macro gap.
 
-## Install
-1. Run `v0.8.1_migration.sql` in Supabase SQL Editor.
-2. Replace these five files in GitHub Pages:
+### Shop / Pantry
+- Separates **needed quantity**, **package size**, **recommended packages**, **packages actually purchased**, **purchased grams**, and **actual total paid**.
+- Purchased quantity — not recipe quantity — is what gets added to Pantry.
+- Store/package prices are saved and reused for future estimates.
+- Pantry now supports expiration dates and a **Use soon** flag.
+- Meal generation gives extra preference to pantry ingredients and especially Use-soon ingredients.
+
+### Meal planning
+- Daily meal plans remain grouped by Breakfast / Lunch / Snack / Dinner.
+- Generator balances meals across the whole day instead of treating each meal as an isolated macro target.
+- Pantry, recent meals, favorites, diet rules, ingredient overlap, and meal-prep mode all influence selection.
+- Snacks remain first-class meal slots.
+
+### Flex
+- Real workout planner and logger.
+- Program families: Push/Pull/Legs, Upper/Lower, Full Body, and body-part split.
+- Choose 1–7 training days/week; the workout rotation continues across weeks instead of resetting.
+- PPL uses genuinely different A/B sessions and different main lifts.
+- Supplied templates use 5×5 on selected compounds and higher rep ranges on hypertrophy/accessory work.
+- Live set logging, previous best display, estimated PR detection, workout completion, progression suggestions, technique cues, and intelligent same-pattern exercise swaps.
+- Exercise blacklist/exclusions are supported. The supplied templates do **not** use dips.
+
+### Today / Progress
+- Today now combines nutrition, today's planned meals, today's workout, and weight.
+- Progress adds 7-day nutrition averages and 28-day training consistency alongside body measurements.
+
+## Recipe photos
+v0.9 keeps the strict v0.8 image rule: a recipe photo is displayed only when the recipe's `image_status` is `exact` or `close`. Placeholder imagery is used rather than knowingly showing the wrong food. The app is ready for an exact recipe-photo asset pass; generic/mismatched image sourcing was intentionally not restored.
+
+## Upgrade from v0.8.1
+1. In Supabase, open **SQL Editor → New query**.
+2. Run `v0.9_migration.sql` **with RLS**.
+3. Replace these five files in GitHub Pages:
    - `index.html`
    - `styles.css`
    - `app.js`
    - `manifest.webmanifest`
    - `sw.js`
-3. Reload the site. If an old cached build appears, hard refresh once.
+4. Hard-refresh the site or close/reopen the installed PWA so the v0.9 service-worker cache replaces the old one.
 
-## Pricing note
-FatBoySchlim does not invent store prices. A food/store gets an estimate once a shelf price and package size have been saved. Future lists reuse the latest saved price for that store.
+## First test
+1. Shop → Pantry: add a few foods and mark one **Use soon**.
+2. Shop → Plan: generate a 3-day plan with Breakfast/Lunch/Snack/Dinner.
+3. Lock the week and open Grocery list.
+4. Set package size + price, alter **Packages purchased**, save, then mark the item purchased.
+5. Confirm the real purchased grams appear in Pantry.
+6. Flex → create a 3- or 6-day PPL plan.
+7. Start today's workout, log sets, swap one exercise, and finish the workout.
