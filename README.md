@@ -1,21 +1,26 @@
-# FatBoySchlim v0.9.2
+# FatBoySchlim v1.0 — Integrated Weekly Coach
 
-Flex clarity patch.
+v1.0 turns the existing food, shopping, pantry, training and progress systems into one coherent weekly workflow.
 
-## What changed
-- Cleaner, consistently shaped Flex controls.
-- Every live exercise now shows an always-visible prescription: sets, reps, effort/RIR, rest time and tempo.
-- Clear load recommendation / first-session load guidance.
-- Technique instructions and cues are visible without opening a hidden dropdown.
-- Set logging fields are explicitly labeled: Weight, Reps, Effort, Reps in Reserve and Pain.
-- Better mobile layout for exercise cards and set feedback controls.
+## New in v1.0
+- Polished bottom navigation that looks and behaves like a real app button bar, with a clearly highlighted active page.
+- New Settings hub for nutrition/goals, Flex, pantry/shopping and weekly planning.
+- New Weekly Coach flow: goals → meals → groceries/pantry → Flex → lock week.
+- New Today control center with remaining macros, today's meals, training status, weight check-in and coach recommendations.
+- Week-to-week coaching signals based on recent weight trend, calorie/protein adherence, workout adherence and use-soon pantry items.
+- Progress page now tells the story of the week instead of only showing raw logs.
+- UI polish across cards, status pills, quick actions and mobile navigation.
+- Cache bumped to v1.0.
 
 ## Install
-No new SQL migration is required if v0.9.1 SQL has already been run.
+No new database migration is required for v1.0 if v0.9.1 migration completed successfully.
 
-Replace the five GitHub frontend files:
+Replace these five files on GitHub:
 - index.html
 - styles.css
 - app.js
 - manifest.webmanifest
 - sw.js
+
+## Recipe imagery
+The app continues to enforce Exact / Close / Placeholder image status. v1.0 does not reintroduce generic mismatched food photography. The exact-recipe photo asset production pass remains a separate content task; the included recipe_photo_manifest.csv remains the source checklist and does not need to be uploaded to GitHub or Supabase.
