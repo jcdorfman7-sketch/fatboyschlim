@@ -1,21 +1,24 @@
-# FatBoySchlim v1.1 — Macro → Calendar → Cart
+# FatBoySchlim v1.2 — Adaptive Planning & Intelligence
 
-v1.1 focuses on the nutrition-to-shopping execution loop.
-
-## New in v1.1
-- Visual Week View calendar with Breakfast / Lunch / Snack / Dinner lanes.
-- Repeated meal-prep portions are numbered (for example portion 1/3, 2/3, 3/3) and mapped to the days they are intended to be eaten.
-- Daily planned macro totals appear directly in the week calendar.
-- Meal-prep map shows where repeated portions are scheduled.
-- Grocery pricing follows the selected store's native currency (Kaufland/EDEKA = EUR, Fry's/Safeway/Walmart = USD).
-- Advanced per-item price history: latest price, recent average, lowest recorded, history count and confidence.
-- Package-aware shopping remains explicit: recipe need, package size, recommended packages, packages purchased, purchased grams, actual total paid and expected leftovers.
-- Weekly Coach now centers the actual meal calendar before lock-in.
+## What changed
+- All four macros (calories, protein, carbs, fat) are visible and used in weekly balancing / swaps.
+- Week calendar shows all four daily macro totals and includes **Fix day** / **Fine tune** actions.
+- Fix Day makes the smallest useful meal swap instead of regenerating the entire week. “Close enough” is considered success.
+- Grocery estimates now use a seeded store/package catalog for Kaufland, EDEKA, Walmart, Fry's and Safeway.
+- Store selection controls native currency automatically.
+- Count-based and volume-based purchase units are supported (e.g. eggs by each/carton, olive oil by ml).
+- Grocery rows distinguish recipe need, package amount, recommended packages, packages bought, purchased amount and expected leftovers.
+- Personal purchase history overrides starter baseline prices automatically over time.
+- Price History can show the starter baseline alongside personal history and confidence.
+- Cache/deployment handling is upgraded to v1.2 asset versioning and a network-first navigation service worker.
 
 ## Install
-1. In Supabase, open SQL Editor → New query.
-2. Run `v1.1_migration.sql` with RLS.
-3. Replace the five frontend files in GitHub: `index.html`, `styles.css`, `app.js`, `manifest.webmanifest`, `sw.js`.
-4. Hard-refresh once after GitHub Pages deploys.
+1. Run `v1.2_migration.sql` in Supabase with RLS enabled.
+2. Replace the five frontend files in GitHub: `index.html`, `styles.css`, `app.js`, `manifest.webmanifest`, `sw.js`.
+3. Hard refresh once after deployment if an old service worker is still active.
 
-The recipe photo manifest remains a production reference and is not required for deployment.
+## Pricing note
+Seed prices are normal-price planning baselines, not coupon or promotional guarantees. Actual user purchases are stored separately and take priority as the app learns the user's real prices.
+
+## Recipe photos
+The app continues to reject unapproved/mismatched recipe imagery. Exact-photo production remains separate from the pricing and planning engine; placeholders are intentionally shown when an approved exact/close photo is unavailable.
