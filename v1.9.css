@@ -1,0 +1,34 @@
+/* FatBoySchlim v1.9.0 — performance/media */
+.recipePlaceholder.v182LegacySentinel,
+.exerciseCard .v17ExerciseImage.v182LegacySentinel{display:none!important}
+
+.fbs19RecipePhoto{
+  width:100%;aspect-ratio:16/9;object-fit:cover;display:block;
+}
+.fbs19WeekMealPhoto{
+  width:100%;height:80px;object-fit:cover;border-radius:10px;margin-bottom:7px;display:block;
+}
+.fbs19ReadyPhoto{
+  width:72px;height:72px;object-fit:cover;border-radius:14px;flex:0 0 72px;display:block;
+}
+.fbs19HeroPhoto{
+  width:100%;max-height:360px;object-fit:cover;border-radius:18px;margin-bottom:16px;display:block;
+}
+.fbs19ExerciseStrip.twoFrames{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.fbs19ExerciseStrip.oneFrame{grid-template-columns:1fr!important}
+.fbs19NoMedia{
+  min-height:96px;display:grid;place-items:center;text-align:center;
+  color:#aaa3b6;font-size:12px;font-weight:800;
+  border:1px solid rgba(255,255,255,.08);border-radius:14px;background:#15111f;
+  grid-column:1/-1;
+}
+.fbs19Pager{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  padding:16px 0 22px;
+}
+.fbs19Pager span{font-size:13px;color:#bdb6c8}
+.fbs19Pager button{min-width:110px}
+.v15LibraryGrid{content-visibility:auto;contain-intrinsic-size:900px}
+.v15LibraryCard{content-visibility:auto;contain-intrinsic-size:320px}
+.exerciseCard,.purchaseCard,.grocery,.readyMeal{contain:layout paint}
+img.fbs19ImageError{display:none!important}

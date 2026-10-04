@@ -1,25 +1,29 @@
-# FatBoySchlim v1.8.4c — GitHub-ready frontend package
+FatBoySchlim v1.9.0 — Performance + Media Runtime
 
-You already ran the SQL. This package is only the GitHub/frontend part.
+WHAT THIS PACKAGE DOES
+- Replaces the old always-running media MutationObserver.
+- Refreshes media only after a screen is rendered.
+- Loads media metadata once and caches it for 15 minutes.
+- Caches the recipe catalog for 5 minutes.
+- Recipe Library renders 24 cards per page instead of 100+ at once.
+- Recipe search is debounced.
+- Images use lazy loading + async decoding.
+- Service worker has separate static and image caches.
+- Adds Supabase indexes for the most common user/week/date lookups.
+- Uses local_path first, remote_url second, so bundled/local media can be migrated in without rewriting the renderer.
 
-Upload these 4 files to the ROOT of your `fatboyschlim` GitHub repository:
+INSTALL
+1. Run v1.9_PERFORMANCE_INDEXES.sql in Supabase.
+2. Upload index.html and sw.js to the repo root, replacing the old files.
+3. Upload v1.9.js and v1.9.css to the repo root.
+4. Do NOT load v1.8.4b.js or v1.8.3b.js alongside v1.9.js.
+5. Wait for GitHub Pages, then fully close/reopen the PWA.
 
-- `index.html` — REPLACE the existing file
-- `sw.js` — REPLACE the existing file
-- `v1.8.4b.js` — ADD/REPLACE
-- `v1.8.4b.css` — ADD/REPLACE
+MEDIA
+This package improves how images load, but it does NOT falsely claim every recipe/exercise has a verified image.
+Run v1.9_MEDIA_AUDIT.sql to see exactly what is still missing.
+The 1.9 renderer already supports local repo images through media_assets.local_path, which is the target format for the final completed media library.
 
-Do not edit any script tags manually. The replacement `index.html` already:
-- removes `v1.8.3b.js`
-- loads `v1.8.4b.js`
-- loads `v1.8.4b.css`
-
-The replacement `sw.js` uses cache:
-`fatboyschlim-v184c`
-
-After GitHub Pages deploys:
-1. Close the installed PWA/browser tab.
-2. Reopen it.
-3. If it still looks old, hard refresh once.
-
-Do NOT delete your older CSS files. This package assumes the existing repo still contains them.
+WHY THIS IS FASTER
+The previous media system watched essentially every DOM mutation and repeatedly rescanned cards.
+1.9 removes that behavior. It also stops the 300+ recipe library from creating a huge DOM all at once.
