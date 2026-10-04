@@ -1,0 +1,33 @@
+/* FatBoySchlim v1.8.3b — meal media placement */
+.v183bRecipePhoto{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  display:block;
+}
+.v183bWeekMealPhoto{
+  width:100%;
+  height:86px;
+  object-fit:cover;
+  border-radius:10px;
+  margin-bottom:7px;
+  display:block;
+}
+.v183bReadyPhoto{
+  width:72px;
+  height:72px;
+  object-fit:cover;
+  border-radius:14px;
+  flex:0 0 72px;
+}
+.v183bHeroPhoto{
+  width:100%;
+  max-height:360px;
+  object-fit:cover;
+  border-radius:18px;
+  margin-bottom:16px;
+}
+.recipePlaceholder.v182LegacySentinel,
+.exerciseCard .v17ExerciseImage.v182LegacySentinel{
+  display:none!important;
+}
