@@ -1,24 +1,25 @@
-# FatBoySchlim v1.2 — Adaptive Planning & Intelligence
+# FatBoySchlim v1.3 — Repair, Rebalance & Execute
 
-## What changed
-- All four macros (calories, protein, carbs, fat) are visible and used in weekly balancing / swaps.
-- Week calendar shows all four daily macro totals and includes **Fix day** / **Fine tune** actions.
-- Fix Day makes the smallest useful meal swap instead of regenerating the entire week. “Close enough” is considered success.
-- Grocery estimates now use a seeded store/package catalog for Kaufland, EDEKA, Walmart, Fry's and Safeway.
-- Store selection controls native currency automatically.
-- Count-based and volume-based purchase units are supported (e.g. eggs by each/carton, olive oil by ml).
-- Grocery rows distinguish recipe need, package amount, recommended packages, packages bought, purchased amount and expected leftovers.
-- Personal purchase history overrides starter baseline prices automatically over time.
-- Price History can show the starter baseline alongside personal history and confidence.
-- Cache/deployment handling is upgraded to v1.2 asset versioning and a network-first navigation service worker.
+v1.3 focuses on real-world plan repair rather than silently rebuilding a week.
+
+## Highlights
+- Budget guardrail targeting the weekly budget with a preferred +15% maximum.
+- Selectable Budget Fix suggestions with estimated savings and projected macro impact.
+- One **FIX PLAN** action applies selected suggestions together, rebuilds groceries, and shows before/after cart cost.
+- Safe snack-removal suggestions only when the affected day remains within a practical macro band.
+- Cheaper meal-swap suggestions preserve meal type and avoid materially worsening daily macro fit.
+- Package input cleanup: purchased package count is always discrete/whole-number.
+- Human-facing purchase math remains need → package → recommended packages → bought → leftover.
+- Skipped Flex sessions can be rolled forward while preserving rotation order.
+- v1.3 asset/cache version bump to reduce stale GitHub Pages updates.
 
 ## Install
-1. Run `v1.2_migration.sql` in Supabase with RLS enabled.
-2. Replace the five frontend files in GitHub: `index.html`, `styles.css`, `app.js`, `manifest.webmanifest`, `sw.js`.
-3. Hard refresh once after deployment if an old service worker is still active.
+No new database schema is required if v1.2 has already been migrated successfully.
+Replace these five frontend files in GitHub:
+- index.html
+- styles.css
+- app.js
+- manifest.webmanifest
+- sw.js
 
-## Pricing note
-Seed prices are normal-price planning baselines, not coupon or promotional guarantees. Actual user purchases are stored separately and take priority as the app learns the user's real prices.
-
-## Recipe photos
-The app continues to reject unapproved/mismatched recipe imagery. Exact-photo production remains separate from the pricing and planning engine; placeholders are intentionally shown when an approved exact/close photo is unavailable.
+Hard refresh once after deployment if an old service worker is still active.
