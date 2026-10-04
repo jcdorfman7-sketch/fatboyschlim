@@ -1,33 +1,15 @@
-# FatBoySchlim v1.8 — Real Images, Batch 1
+# FatBoySchlim v1.8.1 — Exact exercise images
 
-This is the first release that actually renders approved real, non-AI imagery from `media_assets`.
+This corrects the random/wrong exercise-image problem.
 
-## Run first
-You already ran `v1.8_IMAGE_DATABASE.sql`.
+Install:
+1. Run `v1.8.1_EXACT_IMAGE_BATCH.sql` in Supabase.
+2. Add `v1.8.1.js` and `v1.8.1.css`.
+3. Load the CSS after v1.8.css and the JS after v1.8.js.
+4. Bump the service-worker cache.
 
-Now run:
-`v1.8_IMAGE_BATCH_1.sql`
-
-That marks the verified Batch 1 sources approved, so the frontend is allowed to display them.
-
-## Then deploy
-Add:
-- `v1.8.js`
-- `v1.8.css`
-
-Replace:
-- `index.html`
-- `sw.js`
-
-Keep all existing v1.5–v1.7.3 files.
-
-## What will populate immediately
-Where the database name matches the sourced record:
-- real meal photos for the first macro-builder/meal batch
-- real grocery photos for eggs, chicken breast, yogurt, cottage cheese, cucumber, oats and canned tuna
-- real exercise movement frames for the first core PPL batch
-
-Exercise cards show START / MID / END. A missing middle source says `Photo pending` rather than showing a fake image.
-
-## Important
-This is not the entire 300+ meal / whole grocery / whole exercise library yet. The system is now live and real images will populate for every approved sourced row. Remaining items stay intentionally blank until they are sourced and approved.
+Rules:
+- All earlier exercise images marked `close` are disabled.
+- Known bad Skull Crusher / Reverse Pec Deck substitutions are disabled.
+- Only verified same-movement sources are approved.
+- MID stays pending unless a genuine third frame exists.

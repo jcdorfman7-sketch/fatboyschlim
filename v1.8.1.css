@@ -1,0 +1,3 @@
+.v181Missing{height:150px;display:grid;place-items:center;color:var(--muted);font-size:11px;font-weight:800;text-align:center;padding:8px}
+.v18ExerciseStrip img{object-fit:contain!important}
+@media(max-width:560px){.v181Missing{height:110px}}
