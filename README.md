@@ -1,24 +1,22 @@
-# FatBoySchlim v1.5 — Massive Food Library
-
-## Main changes
-- 300+ total meal/recipe target after migration, including flexible macro-builder meals.
-- Expanded nutrition grocery catalog with common proteins, dairy, produce, carbs, fats, sauces and convenience foods.
-- Budget strategy: Cheapest possible / Budget-conscious / Balanced / Variety-first.
-- Low-budget plans heavily down-rank premium foods unless already in the pantry.
-- Pantry-first and Cheap Week one-tap planning modes.
-- Cooking-time constraint and max recipe repeats.
-- Recipe browser filters for macro builders, budget meals, quick meals and high-protein meals.
-- Grocery library browser in Pantry.
-- Expanded starter package/price baselines for common new foods. User purchase history still takes precedence.
+# FatBoySchlim v1.7 — Smart Training Coach + Visual Refresh
 
 ## Install
-Run the four SQL files in order. Each is intentionally kept short enough to paste into Supabase separately:
-1. `v1.5_part1_schema.sql`
-2. `v1.5_part2_foods.sql`
-3. `v1.5_part3_recipes.sql`
-4. `v1.5_part4_prices.sql`
+1. Run `v1.7_ALL_IN_ONE.sql` in Supabase with RLS enabled.
+2. Keep your existing `app.js`, `styles.css`, `v1.6.js`, and `v1.6.css`.
+3. Upload/replace `index.html`, `sw.js`, and `manifest.webmanifest`.
+4. Add `v1.7.js`, `v1.7.css`, and the entire `assets/` folder.
+5. Hard refresh once after GitHub Pages deploys.
 
-Then replace the five GitHub Pages frontend files: `index.html`, `styles.css`, `app.js`, `manifest.webmanifest`, `sw.js`.
+## What changed
+- Smart exercise replacement ranked by muscle, movement pattern, equipment and preferences.
+- Choose a replacement for one workout or save it as the permanent substitute.
+- Favorite or avoid exercises.
+- Adapt Today modes: normal, short on time, low energy, joint issue, crowded gym.
+- Saved substitutions are automatically applied to future generated workouts.
+- Visual system for recipes, groceries and exercises, with database image URL fields plus bundled branded fallbacks.
+- Distinct page identities: Today warm coral, Eat green, Shop cyan, Flex purple, Progress amber.
+- FBS watermark treatment on every main page.
+- More fluid heroes, cards, transitions and page grouping.
 
-## Notes
-The new store prices are planning baselines, not coupon/sale promises. Actual purchase history takes priority as you use the app. Recipe photos remain governed by the Exact/Close approval system; v1.5 does not reintroduce random mismatched photography.
+## Image note
+v1.7 adds the full image architecture and branded fallback artwork everywhere. Existing exact/close recipe photography is still respected. Grocery and exercise records can now receive exact image URLs without another frontend rewrite. The bundled fallback art is deliberately marked as placeholder artwork; it is not pretending to be an exact food/product/exercise demonstration.
