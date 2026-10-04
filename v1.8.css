@@ -1,0 +1,10 @@
+/* FatBoySchlim v1.8 real media */
+.v18RealImage{background:#16121f}
+.v18ExerciseStrip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 14px}
+.v18ExerciseStrip figure{margin:0;position:relative;border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;background:#15111f;min-height:150px}
+.v18ExerciseStrip img{width:100%;height:150px;object-fit:contain;background:#f4f1ea}
+.v18ExerciseStrip figcaption{position:absolute;left:7px;bottom:7px;padding:4px 7px;border-radius:999px;background:rgba(16,12,23,.88);color:#fff;font-size:10px;font-weight:900;letter-spacing:.08em}
+.v18ExerciseStrip .missing div{height:150px;display:grid;place-items:center;color:var(--muted);font-size:11px;font-weight:800}
+.v17ItemImage img.v18RealImage{object-fit:cover}
+.recipePhoto.v18RealImage{object-fit:cover}
+@media(max-width:560px){.v18ExerciseStrip{gap:5px}.v18ExerciseStrip figure,.v18ExerciseStrip img,.v18ExerciseStrip .missing div{min-height:110px;height:110px}}
