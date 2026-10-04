@@ -1,5 +1,5 @@
-const CACHE='fatboyschlim-v183b';
-const ASSETS=['./','./index.html','./styles.css?v=1.5','./v1.6.css?v=1.6','./v1.7.css?v=1.7','./v1.7.2.css?v=1.7.2','./v1.7.3.css?v=1.7.3','./v1.8.css?v=1.8','./v1.8.1.css?v=1.8.1','./v1.8.2.css?v=1.8.2','./v1.8.3b.css?v=1.8.3b','./app.js?v=1.5','./v1.6.js?v=1.6','./v1.7.js?v=1.7','./v1.8.3b.js?v=1.8.3b','./manifest.webmanifest'];
+const CACHE='fatboyschlim-v184c';
+const ASSETS=['./','./index.html','./styles.css?v=1.5','./v1.6.css?v=1.6','./v1.7.css?v=1.7','./v1.7.2.css?v=1.7.2','./v1.7.3.css?v=1.7.3','./v1.8.css?v=1.8','./v1.8.1.css?v=1.8.1','./v1.8.2.css?v=1.8.2','./v1.8.3b.css?v=1.8.3b','./v1.8.4b.css?v=1.8.4b','./app.js?v=1.5','./v1.6.js?v=1.6','./v1.7.js?v=1.7','./v1.8.4b.js?v=1.8.4b','./manifest.webmanifest'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('message',e=>{if(e.data==='SKIP_WAITING')self.skipWaiting()});
